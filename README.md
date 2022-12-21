@@ -113,30 +113,35 @@ const users = [
   {
     id: 1,
     name: "Leia",
+    email: "Leia@gmail.com"
     isOnline: false,
     age: 25,
   },
   {
     id: 2,
     name: "Look",
+    email: "Look@gmail.com"
     isOnline: true,
     age: 36,
   },
   {
     id: 3,
     name: "James",
+    email: "James@gmail.com"
     isOnline: true,
     age: 35,
   },
   {
     id: 4,
     name: "Brook",
+    email: "Brook@gmail.com"
     isOnline: false,
     age: 32,
   },
   {
     id: 5,
     name: "Havana",
+    email: "Havana@gmail.com"
     isOnline: false,
     age: 29,
   },
@@ -151,6 +156,7 @@ const users = [
 2. Lista allas age
 3. Lista en array med objekt med properties name och age.
 4. Ändra namn på obj id 2 till Abraham.
+5. Lista allas email i en array.
 
 ## FILTER
 
@@ -252,4 +258,4 @@ const products = [
 
 1. Kolla om det är någon produkt som har ett pris över 15000kr.
 2. Kolla om det är någon produkt som inte är inStock === true.
-3. Kolla om det är någon produkt som har samma id. 
+3. Kolla om det är någon produkt som har samma id.
