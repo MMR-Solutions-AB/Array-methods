@@ -158,7 +158,7 @@ const users = [
 
 1. Lista alla som är isOnline === true
 2. Lista alla som är under 30 år
-3. Lista alla som har ett name
+3. Lista alla som har ett name under 5 bokstäver långt.
 
 ## SOME
 
@@ -174,6 +174,7 @@ const users = [
 
 1. Räkna ut medel åldern för alla users.
 2. Räkna ut hur många bokstäver allas namn innehåller.
+3. Räkna ut totala åldern för alla users.
 
 ## Exemple Data 3 **Products**
 
@@ -245,8 +246,10 @@ const products = [
 
 1. Kolla om alla produkter har ett pris över 7000kr.
 2. Kolla om alla produkter är inStock === true.
+3. Kolla om alla produkter h
 
 ## SOME
 
 1. Kolla om det är någon produkt som har ett pris över 15000kr.
 2. Kolla om det är någon produkt som inte är inStock === true.
+3. Kolla om det är någon produkt som har samma id. 
