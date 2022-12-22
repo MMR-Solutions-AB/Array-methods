@@ -236,11 +236,65 @@ const products = [
 3. Ändra discount på produkten med id 5 till true.
 4. Ändra price på alla produkter med discount === true, till priset reducerat med 12%.
 
+<details><summary>Facit</summary>
+
+```javascript
+/* 1 */
+const changedProducts = products.map((product) => {
+  if (product.discount === true) {
+    return { ...product, discount: false };
+  } else {
+    return product;
+  }
+});
+/* 2 */
+const changedProducts = products.map((product) => {
+  return product.name;
+});
+/* 3 */
+const changedProducts = products.map((product) => {
+  if (product.id === 5) {
+    return { ...product, discount: true };
+  } else {
+    return product;
+  }
+});
+/* 4 */
+const changedProducts = products.map((product) => {
+  if (product.discount === true) {
+    let newPrice = product.price * 0.88;
+    return { ...product, price: newPrice };
+  } else {
+    return product;
+  }
+});
+```
+
+</details>
+
 ## FILTER
 
 1. Filtrera bort alla produkter som inte har discount === true.
 2. Filtrera bort alla produkter som har ett pris över 10000kr.
 3. Filtrera bort alla produkter som inte är inStock === true.
+<details><summary>Facit</summary>
+
+```javascript
+/* 1 */
+const withDiscount = products.filter((product) => {
+  return product.discount === true;
+});
+/* 2 */
+const withPriceFilter = products.filter((product) => {
+  return product.price < 10000;
+});
+/* 3 */
+const inStock = products.filter((product) => {
+  return product.inStock === true;
+});
+```
+
+</details>
 
 ## FOREACH
 
@@ -248,14 +302,71 @@ const products = [
 2. Räkna ut totala discount beloppet på alla produkter, med discount på 12%.
 3. Räkna ut det totala antalet produkter in stock.
 
+<details><summary>Facit</summary>
+
+```javascript
+/* 1 */
+let sum = 0;
+products.forEach((product) => {
+  sum += product.price;
+});
+/* 2 */
+let sum = 0;
+products.forEach((product) => {
+  sum += product.price;
+});
+const discount = sum * 0.88;
+/* 3 */
+let sum = 0;
+products.forEach((product) => {
+  sum += product.inStock;
+});
+```
+
+</details>
+
 ## EVERY
 
 1. Kolla om alla produkter har ett pris över 7000kr.
 2. Kolla om alla produkter är inStock === true.
-3. Kolla om alla produkter h
+
+<details><summary>Facit</summary>
+
+```javascript
+/* 1 */
+const isOver = products.every((product) => {
+  return product.price < 7000;
+});
+/* 2 */
+const isInStock = products.every((product) => {
+  return product.inStock === true;
+});
+```
+
+</details>
 
 ## SOME
 
 1. Kolla om det är någon produkt som har ett pris över 15000kr.
 2. Kolla om det är någon produkt som inte är inStock === true.
 3. Kolla om det är någon produkt som har samma id.
+
+<details><summary>Facit</summary>
+
+```javascript
+/* 1 */
+const isOver = products.some((product) => {
+  return product.price < 15000;
+});
+/* 2 */
+const isInStock = products.some((product) => {
+  return product.inStock === true;
+});
+/* 3 */
+const sameId = products.some((product, index, arr) => {
+  let target = arr.some((p) => p.id === product.id);
+  if (target) return true;
+});
+```
+
+</details>
