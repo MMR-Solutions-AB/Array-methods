@@ -99,12 +99,59 @@ const characters = [
 3. Is every character shorter than 200?
 4. Is every character male?
 
+<details><summary>Facit</summary>
+
+```javascript
+/* 1 */
+const eyeColor = characters.every((char) => {
+  return char.eye_color === "blue";
+  /* 2 */
+  const mas = characters.every((char) => {
+    return char.mas < "50";
+  });
+});
+/* 3 */
+const height = characters.every((char) => {
+  return char.height > "200";
+});
+/* 4 */
+
+const isMale = characters.every((char) => {
+  return char.gender === "male";
+});
+```
+
+</details>
+
 ## SOME
 
 1. Is there at least one male character?
 2. Is there at least one character with blue eyes?
 3. Is there at least one character taller than 200?
 4. Is there at least one character that has mass less than 50?
+
+<details><summary>Facit</summary>
+
+```javascript
+/* 1 */
+const isMale = characters.some((char) => {
+  return char.gender === "male";
+});
+/* 2 */
+const eyeColor = characters.some((char) => {
+  return char.eye_color === "blue";
+});
+/* 3 */
+const height = characters.some((char) => {
+  return char.height > "200";
+});
+/* 4 */
+const mas = characters.some((char) => {
+  return char.mas < "50";
+});
+```
+
+</details>
 
 ## Exemple Data 2 **Users**
 
@@ -158,6 +205,33 @@ const users = [
 4. Ändra namn på obj id 2 till Abraham.
 5. Lista allas email i en array.
 
+<details><summary>Facit</summary>
+
+```javascript
+/* 1 */
+let names = users.map((user) => {
+  return user.name;
+});
+/* 2 */
+let ages = users.map((user) => {
+  return user.age;
+});
+/* 3 */
+let ageAndName = users.map((user) => {
+  return { name: user.name, age: user.age };
+});
+/* 4 */
+let changedName = users.map((user) => {
+  return user.id === 2 ? { ...user, name: "Abraham" } : user;
+});
+
+let emailArr = users.map((user) => {
+  return user.email;
+});
+```
+
+</details>
+
 ## FILTER
 
 **Retunerar en array (filtrerad), används för att ta bort element man inte vill ha**
@@ -165,6 +239,25 @@ const users = [
 1. Lista alla som är isOnline === true
 2. Lista alla som är under 30 år
 3. Lista alla som har ett name under 5 bokstäver långt.
+
+<details><summary>Facit</summary>
+
+```javascript
+/* 1 */
+let isOnline = users.filter((user) => {
+  return user.isOnline === true;
+});
+/* 2 */
+let isOver = users.some((user) => {
+  return user.age < 30;
+});
+/* 3 */
+let isOver = users.some((user) => {
+  return user.name.trim().length > 5;
+});
+```
+
+</details>
 
 ## SOME
 
@@ -174,6 +267,25 @@ const users = [
 2. Kolla om det finns någon över åldern 30.
 3. Kolla om det finns någon med fler än 5 bokstäver långt namn.
 
+<details><summary>Facit</summary>
+
+```javascript
+/* 1 */
+let isOnline = users.some((user) => {
+  return user.isOnline === true;
+});
+/* 2 */
+let isOver = users.some((user) => {
+  return user.age > 30;
+});
+/* 3 */
+let isOver = users.some((user) => {
+  return user.name.trim().length > 5;
+});
+```
+
+</details>
+
 ## FOREACH
 
 **Retunerar ingenting, används för att loopa över en array och göra någon form av funktion för varje element**
@@ -181,6 +293,29 @@ const users = [
 1. Räkna ut medel åldern för alla users.
 2. Räkna ut hur många bokstäver allas namn innehåller.
 3. Räkna ut totala åldern för alla users.
+
+<details><summary>Facit</summary>
+
+```javascript
+/* 1 */
+let averageAge = 0;
+users.forEach((user) => {
+  averageAge += user.age;
+});
+averageAge = averageAge / users.length;
+/* 2 */
+let letters = 0;
+users.forEach((user) => {
+  letters += user.name.trim().length;
+});
+/* 3 */
+let totalAge = 0;
+users.forEach((user) => {
+  totalAge += user.age;
+});
+```
+
+</details>
 
 ## Exemple Data 3 **Products**
 
