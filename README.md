@@ -34,32 +34,32 @@ Här är ett API som ni kan använda istället för datan nedanför [Star Wars A
 ```javascript
 const characters = [
   {
-    name: "Luke Skywalker",
-    height: "172",
-    mass: "77",
-    eye_color: "blue",
-    gender: "male",
+    name: 'Luke Skywalker',
+    height: '172',
+    mass: '77',
+    eye_color: 'blue',
+    gender: 'male',
   },
   {
-    name: "Darth Vader",
-    height: "202",
-    mass: "136",
-    eye_color: "yellow",
-    gender: "male",
+    name: 'Darth Vader',
+    height: '202',
+    mass: '136',
+    eye_color: 'yellow',
+    gender: 'male',
   },
   {
-    name: "Leia Organa",
-    height: "150",
-    mass: "49",
-    eye_color: "brown",
-    gender: "female",
+    name: 'Leia Organa',
+    height: '150',
+    mass: '49',
+    eye_color: 'brown',
+    gender: 'female',
   },
   {
-    name: "Anakin Skywalker",
-    height: "188",
-    mass: "84",
-    eye_color: "blue",
-    gender: "male",
+    name: 'Anakin Skywalker',
+    height: '188',
+    mass: '84',
+    eye_color: 'blue',
+    gender: 'male',
   },
 ];
 ```
@@ -71,12 +71,57 @@ const characters = [
 3. Get an array of objects with just name and height properties
 4. Get an array of all first names
 
+<details><summary>Facit</summary>
+
+```javascript
+/* 1 */
+const names = characters.map((character) => character.name);
+/* 2 */
+const heights = characters.map((character) => character.height);
+/* 3 */
+const nameAndHeight = characters.map((character) => ({
+  name: character.name,
+  height: character.height,
+}));
+/* 4 */
+const firstNames = characters.map((character) => character.name.split(' ')[0]);
+```
+
+</details>
+
 ## REDUCE
 
 1. Get the total mass of all characters
 2. Get the total height of all characters
 3. Get the total number of characters in all the character names
 4. Get the total number of characters by eye color (hint. a map of eye color to count)
+
+<details><summary>Facit</summary>
+
+```javascript
+/* 1 */
+const totalMass = characters.reduce(
+  (acc, character) => acc + parseInt(character.mass),
+  0
+);
+/* 2 */
+const totalHeight = characters.reduce(
+  (acc, character) => acc + parseInt(character.height),
+  0
+);
+/* 3 */
+const totalNameChars = characters.reduce(
+  (acc, character) => acc + character.name.length,
+  0
+);
+/* 4 */
+const eyeColorCount = characters.reduce((acc, character) => {
+  acc[character.eye_color] = (acc[character.eye_color] || 0) + 1;
+  return acc;
+}, {});
+```
+
+</details>
 
 ## FILTER
 
@@ -85,12 +130,56 @@ const characters = [
 3. Get all male characters
 4. Get all female characters
 
+<details><summary>Facit</summary>
+
+```javascript
+/* 1 */
+const heavyCharacters = characters.filter(
+  (character) => parseInt(character.mass) > 100
+);
+/* 2 */
+const shortCharacters = characters.filter(
+  (character) => parseInt(character.height) < 200
+);
+/* 3 */
+const maleCharacters = characters.filter(
+  (character) => character.gender === 'male'
+);
+/* 4 */
+const femaleCharacters = characters.filter(
+  (character) => character.gender === 'female'
+);
+```
+
+</details>
+
 ## SORT
 
 1. Sort by name
 2. Sort by mass
 3. Sort by height
 4. Sort by gender
+
+<details><summary>Facit</summary>
+
+```javascript
+/* 1 */
+const sortedByName = characters.sort((a, b) => a.name.localeCompare(b.name));
+/* 2 */
+const sortedByMass = characters.sort(
+  (a, b) => parseInt(a.mass) - parseInt(b.mass)
+);
+/* 3 */
+const sortedByHeight = characters.sort(
+  (a, b) => parseInt(a.height) - parseInt(b.height)
+);
+/* 4 */
+const sortedByGender = characters.sort((a, b) =>
+  a.gender.localeCompare(b.gender)
+);
+```
+
+</details>
 
 ## EVERY
 
@@ -104,20 +193,20 @@ const characters = [
 ```javascript
 /* 1 */
 const eyeColor = characters.every((char) => {
-  return char.eye_color === "blue";
+  return char.eye_color === 'blue';
   /* 2 */
   const mas = characters.every((char) => {
-    return char.mas < "50";
+    return char.mas < '50';
   });
 });
 /* 3 */
 const height = characters.every((char) => {
-  return char.height > "200";
+  return char.height > '200';
 });
 /* 4 */
 
 const isMale = characters.every((char) => {
-  return char.gender === "male";
+  return char.gender === 'male';
 });
 ```
 
@@ -135,19 +224,19 @@ const isMale = characters.every((char) => {
 ```javascript
 /* 1 */
 const isMale = characters.some((char) => {
-  return char.gender === "male";
+  return char.gender === 'male';
 });
 /* 2 */
 const eyeColor = characters.some((char) => {
-  return char.eye_color === "blue";
+  return char.eye_color === 'blue';
 });
 /* 3 */
 const height = characters.some((char) => {
-  return char.height > "200";
+  return char.height > '200';
 });
 /* 4 */
 const mas = characters.some((char) => {
-  return char.mas < "50";
+  return char.mas < '50';
 });
 ```
 
@@ -222,7 +311,7 @@ let ageAndName = users.map((user) => {
 });
 /* 4 */
 let changedName = users.map((user) => {
-  return user.id === 2 ? { ...user, name: "Abraham" } : user;
+  return user.id === 2 ? { ...user, name: 'Abraham' } : user;
 });
 
 let emailArr = users.map((user) => {
@@ -323,7 +412,7 @@ users.forEach((user) => {
 const products = [
   {
     id: 1,
-    title: "Iphone 9",
+    title: 'Iphone 9',
     price: 8998,
     inStock: true,
     totalAmount: 99,
@@ -331,7 +420,7 @@ const products = [
   },
   {
     id: 2,
-    title: "Iphone 10",
+    title: 'Iphone 10',
     price: 9998,
     inStock: true,
     totalAmount: 5,
@@ -339,7 +428,7 @@ const products = [
   },
   {
     id: 3,
-    title: "Iphone 11",
+    title: 'Iphone 11',
     price: 10800,
     inStock: false,
     totalAmount: 0,
@@ -347,7 +436,7 @@ const products = [
   },
   {
     id: 4,
-    title: "Iphone 12",
+    title: 'Iphone 12',
     price: 11500,
     inStock: true,
     totalAmount: 58,
@@ -355,7 +444,7 @@ const products = [
   },
   {
     id: 5,
-    title: "Iphone 13",
+    title: 'Iphone 13',
     price: 12998,
     inStock: true,
     totalAmount: 99,
