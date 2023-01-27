@@ -26,6 +26,8 @@ Vi kommer gå igenom följande
 - EVERY
 - REDUCE
 - FIND
+- FOREACH
+- SORT
 
 ## Exemple Data 1 **Characters**
 
