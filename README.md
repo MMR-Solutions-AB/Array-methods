@@ -198,7 +198,7 @@ const eyeColor = characters.every((char) => {
   return char.eye_color === 'blue';
   /* 2 */
   const mas = characters.every((char) => {
-    return char.mas < '50';
+    return parseInt(char.mas) < 50;
   });
 });
 /* 3 */
