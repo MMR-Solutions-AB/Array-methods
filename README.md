@@ -251,35 +251,35 @@ const users = [
   {
     id: 1,
     name: "Leia",
-    email: "Leia@gmail.com"
+    email: "Leia@gmail.com",
     isOnline: false,
     age: 25,
   },
   {
     id: 2,
     name: "Look",
-    email: "Look@gmail.com"
+    email: "Look@gmail.com",
     isOnline: true,
     age: 36,
   },
   {
     id: 3,
     name: "James",
-    email: "James@gmail.com"
+    email: "James@gmail.com",
     isOnline: true,
     age: 35,
   },
   {
     id: 4,
     name: "Brook",
-    email: "Brook@gmail.com"
+    email: "Brook@gmail.com",
     isOnline: false,
     age: 32,
   },
   {
     id: 5,
     name: "Havana",
-    email: "Havana@gmail.com"
+    email: "Havana@gmail.com",
     isOnline: false,
     age: 29,
   },
